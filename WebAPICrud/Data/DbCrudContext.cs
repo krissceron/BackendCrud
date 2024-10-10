@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using WebAPICrud.Models;
 
 namespace WebAPICrud.Data;
@@ -28,7 +27,6 @@ public partial class DbCrudContext : DbContext
             optionsBuilder.UseSqlServer(_connectionString);
         }
     }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Usuario>(entity =>
@@ -42,8 +40,7 @@ public partial class DbCrudContext : DbContext
                 .HasColumnName("usu_apellido");
             entity.Property(e => e.UsuCedula).HasColumnName("usu_cedula");
             entity.Property(e => e.UsuContrasenia)
-                .HasMaxLength(50)
-                .IsUnicode(false)
+                .HasMaxLength(100)
                 .HasColumnName("usu_contrasenia");
             entity.Property(e => e.UsuCorreo)
                 .HasMaxLength(50)

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAPICrud.Data;
 using WebAPICrud.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.Scripting;
 
 namespace WebAPICrud.Controllers
 {
@@ -21,15 +19,15 @@ namespace WebAPICrud.Controllers
             _context = context;
         }
 
-        // GET: api/Usuarios
-        [HttpGet]
+        // GET: api/Usuarios/Lista
+        [HttpGet("Lista")]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
             return await _context.Usuarios.ToListAsync();
         }
 
-        // GET: api/Usuarios/5
-        [HttpGet("{id}")]
+        // GET: api/Usuarios/Obtener/5
+        [HttpGet("Obtener/{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
             var usuario = await _context.Usuarios.FindAsync(id);
@@ -42,9 +40,21 @@ namespace WebAPICrud.Controllers
             return usuario;
         }
 
-        // PUT: api/Usuarios/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        // POST: api/Usuarios/Nuevo
+        [HttpPost("Nuevo")]
+        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
+        {
+            // Encriptar la contraseña antes de guardar
+            usuario.UsuContrasenia = BCrypt.Net.BCrypt.HashPassword(usuario.UsuContrasenia);
+
+            _context.Usuarios.Add(usuario);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetUsuario", new { id = usuario.UsuId }, usuario);
+        }
+
+        // PUT: api/Usuarios/Editar/5
+        [HttpPut("Editar/{id}")]
         public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
         {
             if (id != usuario.UsuId)
@@ -73,19 +83,8 @@ namespace WebAPICrud.Controllers
             return NoContent();
         }
 
-        // POST: api/Usuarios
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
-        {
-            _context.Usuarios.Add(usuario);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetUsuario", new { id = usuario.UsuId }, usuario);
-        }
-
-        // DELETE: api/Usuarios/5
-        [HttpDelete("{id}")]
+        // DELETE: api/Usuarios/Eliminar/5
+        [HttpDelete("Eliminar/{id}")]
         public async Task<IActionResult> DeleteUsuario(int id)
         {
             var usuario = await _context.Usuarios.FindAsync(id);
@@ -100,56 +99,25 @@ namespace WebAPICrud.Controllers
             return NoContent();
         }
 
-        [HttpGet("{nombreusuario}/{contrasenia}")]
-        public ActionResult<List<Usuario>> GetIniciarSesion(string nombreusuario, string contrasenia)
+        // POST: api/Usuarios/Login
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] LoginViewModel usuario)
         {
-            var usuario = _context.Usuarios.Where(usuario => usuario.UsuUsuario.Equals(nombreusuario) && usuario.UsuContrasenia.Equals(contrasenia)).ToList();
+            var user = await _context.Usuarios
+                .Where(u => u.UsuUsuario == usuario.UsuUsuario)
+            .FirstOrDefaultAsync();
 
-            if (usuario == null)
+            if (user == null || !BCrypt.Net.BCrypt.Verify(usuario.UsuContrasenia, user.UsuContrasenia))
             {
-                return NotFound();
+                return Unauthorized(new { message = "Credenciales incorrectas." });
             }
 
-            return usuario;
+            return Ok(user); // Aquí puedes devolver un token en lugar de los datos del usuario
         }
 
         private bool UsuarioExists(int id)
         {
             return _context.Usuarios.Any(e => e.UsuId == id);
-        }
-
-        // POST: api/Auth/Register
-        [HttpPost("Register")]
-        public async Task<ActionResult<Usuario>> Register(Usuario usuario)
-        {
-            // Verificar si el nombre de usuario ya existe
-            var existingUser = await _context.Usuarios
-                .FirstOrDefaultAsync(u => u.UsuUsuario == usuario.UsuUsuario);
-
-            if (existingUser != null)
-            {
-                return Conflict("El nombre de usuario ya está registrado.");
-            }
-
-            _context.Usuarios.Add(usuario);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(Register), new { id = usuario.UsuId }, usuario);
-        }
-
-        // POST: api/Auth/Login
-        [HttpPost("Login")]
-        public async Task<ActionResult<Usuario>> Login(string nombreusuario, string contrasenia)
-        {
-            var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(u => u.UsuUsuario == nombreusuario && u.UsuContrasenia == contrasenia);
-
-            if (usuario == null)
-            {
-                return Unauthorized("Credenciales inválidas.");
-            }
-
-            return Ok(usuario);
         }
     }
 }
