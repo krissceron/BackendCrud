@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\kriss\\source\\repos\\WebAPICrud\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DB66AB42-774E-40B6-8452-43B6FAD77032}|WebAPICrud\\WebAPICrud.csproj|c:\\users\\kriss\\source\\repos\\webapicrud\\webapicrud\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB66AB42-774E-40B6-8452-43B6FAD77032}|WebAPICrud\\WebAPICrud.csproj|solutionrelative:webapicrud\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DB66AB42-774E-40B6-8452-43B6FAD77032}|WebAPICrud\\WebAPICrud.csproj|c:\\users\\kriss\\source\\repos\\webapicrud\\webapicrud\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB66AB42-774E-40B6-8452-43B6FAD77032}|WebAPICrud\\WebAPICrud.csproj|solutionrelative:webapicrud\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB66AB42-774E-40B6-8452-43B6FAD77032}|WebAPICrud\\WebAPICrud.csproj|c:\\users\\kriss\\source\\repos\\webapicrud\\webapicrud\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,6 +17,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{DB66AB42-774E-40B6-8452-43B6FAD77032}|WebAPICrud\\WebAPICrud.csproj|c:\\users\\kriss\\source\\repos\\webapicrud\\webapicrud\\data\\dbcrudcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB66AB42-774E-40B6-8452-43B6FAD77032}|WebAPICrud\\WebAPICrud.csproj|solutionrelative:webapicrud\\data\\dbcrudcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB66AB42-774E-40B6-8452-43B6FAD77032}|WebAPICrud\\WebAPICrud.csproj|c:\\users\\kriss\\source\\repos\\webapicrud\\webapicrud\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB66AB42-774E-40B6-8452-43B6FAD77032}|WebAPICrud\\WebAPICrud.csproj|solutionrelative:webapicrud\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB66AB42-774E-40B6-8452-43B6FAD77032}|WebAPICrud\\WebAPICrud.csproj|c:\\users\\kriss\\source\\repos\\webapicrud\\webapicrud\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DB66AB42-774E-40B6-8452-43B6FAD77032}|WebAPICrud\\WebAPICrud.csproj|solutionrelative:webapicrud\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -36,23 +44,9 @@
               "RelativeDocumentMoniker": "WebAPICrud\\appsettings.json",
               "ToolTip": "C:\\Users\\kriss\\source\\repos\\WebAPICrud\\WebAPICrud\\appsettings.json",
               "RelativeToolTip": "WebAPICrud\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-09-30T02:10:59.273Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\kriss\\source\\repos\\WebAPICrud\\WebAPICrud\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "WebAPICrud\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\kriss\\source\\repos\\WebAPICrud\\WebAPICrud\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "WebAPICrud\\Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T03:45:06.965Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-30T02:10:59.273Z"
             },
             {
               "$type": "Document",
@@ -62,9 +56,22 @@
               "RelativeDocumentMoniker": "WebAPICrud\\Program.cs",
               "ToolTip": "C:\\Users\\kriss\\source\\repos\\WebAPICrud\\WebAPICrud\\Program.cs",
               "RelativeToolTip": "WebAPICrud\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-30T03:28:51.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuariosController.cs",
+              "DocumentMoniker": "C:\\Users\\kriss\\source\\repos\\WebAPICrud\\WebAPICrud\\Controllers\\UsuariosController.cs",
+              "RelativeDocumentMoniker": "WebAPICrud\\Controllers\\UsuariosController.cs",
+              "ToolTip": "C:\\Users\\kriss\\source\\repos\\WebAPICrud\\WebAPICrud\\Controllers\\UsuariosController.cs",
+              "RelativeToolTip": "WebAPICrud\\Controllers\\UsuariosController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAGEAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T22:03:46.871Z",
               "EditorCaption": ""
             },
             {
@@ -75,10 +82,33 @@
               "RelativeDocumentMoniker": "WebAPICrud\\Data\\DbCrudContext.cs",
               "ToolTip": "C:\\Users\\kriss\\source\\repos\\WebAPICrud\\WebAPICrud\\Data\\DbCrudContext.cs",
               "RelativeToolTip": "WebAPICrud\\Data\\DbCrudContext.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAADIAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T02:59:11.726Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-09T19:40:37.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\kriss\\source\\repos\\WebAPICrud\\WebAPICrud\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "WebAPICrud\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\kriss\\source\\repos\\WebAPICrud\\WebAPICrud\\Models\\Usuario.cs",
+              "RelativeToolTip": "WebAPICrud\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T19:30:58.776Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\kriss\\source\\repos\\WebAPICrud\\WebAPICrud\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "WebAPICrud\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\kriss\\source\\repos\\WebAPICrud\\WebAPICrud\\Properties\\launchSettings.json",
+              "RelativeToolTip": "WebAPICrud\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAswCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-09T21:55:46.485Z"
             }
           ]
         }

@@ -36,6 +36,7 @@ app.UseCors("NuevaPolitica");
 
 app.UseHttpsRedirection();
 
+
 app.UseAuthorization();
 
 

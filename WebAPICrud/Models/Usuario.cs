@@ -14,4 +14,8 @@ public partial class Usuario
     public int? UsuCedula { get; set; }
 
     public string? UsuCorreo { get; set; }
+
+    public string? UsuUsuario { get; set; }
+
+    public string? UsuContrasenia { get; set; }
 }

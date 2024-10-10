@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using WebAPICrud.Models;
 
 namespace WebAPICrud.Data;
 
 public partial class DbCrudContext : DbContext
 {
-    public DbCrudContext()
+    private readonly string _connectionString;
+    public DbCrudContext(string connectionString)
     {
+        _connectionString = connectionString;
     }
 
     public DbCrudContext(DbContextOptions<DbCrudContext> options)
@@ -20,7 +23,10 @@ public partial class DbCrudContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer(_connectionString);
+        }
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,6 +41,10 @@ public partial class DbCrudContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("usu_apellido");
             entity.Property(e => e.UsuCedula).HasColumnName("usu_cedula");
+            entity.Property(e => e.UsuContrasenia)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("usu_contrasenia");
             entity.Property(e => e.UsuCorreo)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -43,6 +53,10 @@ public partial class DbCrudContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("usu_nombre");
+            entity.Property(e => e.UsuUsuario)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("usu_usuario");
         });
 
         OnModelCreatingPartial(modelBuilder);
